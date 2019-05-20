@@ -1,7 +1,3 @@
-@import "./Colors";
-@import "./Fonts";
-@import "./Mixins";
-
 .new-form {
   @include formContainer();
   [data-new-form] {

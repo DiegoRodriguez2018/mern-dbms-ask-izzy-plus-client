@@ -1,7 +1,3 @@
-@import "./Colors";
-@import "./Fonts";
-@import "./Mixins";
-
 // DASHBOARD: Tab - Service
 .service-form {
   @include formContainer();

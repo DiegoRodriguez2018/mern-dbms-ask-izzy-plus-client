@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// import "../stylesheets/AdminHome.css";
-
 import Navigation from './Navigation';
 import AdminLogIn from './AdminLogIn';
 import Footer from './Footer';

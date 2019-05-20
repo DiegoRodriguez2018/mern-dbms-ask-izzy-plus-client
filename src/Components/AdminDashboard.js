@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import axios from "axios";
 import avatar from "../Images/app/user-avatar.svg";
-import "../stylesheets/AdminDashboard.css";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 

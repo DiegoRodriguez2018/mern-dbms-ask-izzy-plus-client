@@ -1,7 +1,6 @@
 //Component Description: Site component takes information of only one site and returns a react fractment displaying its attributes. Later on this component will return a form allowing the user to send PUT requests.
 import React, { Component } from "react";
 import axios from "axios";
-import "../stylesheets/NewForm.css";
 
 class NewService extends Component {
   //Declaring state.

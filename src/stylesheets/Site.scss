@@ -1,7 +1,3 @@
-@import "./Colors";
-@import "./Fonts";
-@import "./Mixins";
-
 // DASHBOARD: Tab - Organisation
 .site-form {
   @include formContainer();

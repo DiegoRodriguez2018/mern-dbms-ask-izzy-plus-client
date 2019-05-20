@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../stylesheets/User.css";
 import avatar from '../Images/app/user-avatar.svg';
 
 class User extends Component {

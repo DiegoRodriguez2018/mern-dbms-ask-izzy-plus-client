@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "../stylesheets/Home.css";
 
 // COMPONENTS
 import Navigation from './Navigation';

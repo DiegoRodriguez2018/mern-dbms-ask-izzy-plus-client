@@ -41,7 +41,8 @@ class Login extends Component {
           <a className="toggle-login" onClick={this.redirect} >
           Are you an Admin?
           </a>
-        
+          
+        <a className="guest-button">Try as Guest</a>
         </div>
       </div>
     );

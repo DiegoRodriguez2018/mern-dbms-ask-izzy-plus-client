@@ -1,5 +1,19 @@
-@import "./Colors";
 @import "./Fonts";
+@import "./Colors";
+@import "./Mixins";
+
+
+@import "./Home";
+@import "./Tabs";
+@import "./AdminDashboard";
+@import "./AdminHome";
+@import "./Dashboard";
+@import "./NewForm";
+@import "./Organisation";
+@import "./Service";
+@import "./Site";
+@import "./User";
+
 
 // ---------- PAGE CONTAINER ---------- //
 // CONTAINER: All HTML contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc.
