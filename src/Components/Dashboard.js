@@ -10,6 +10,7 @@ import Services from './Services';
 import Navigation from './Navigation';
 import LogOut from './LogOut';
 import Footer from './Footer';
+import { getMaxListeners } from 'cluster';
 const jwtDecode = require('jwt-decode');
 
 class Dashboard extends Component {
@@ -19,8 +20,10 @@ class Dashboard extends Component {
   componentDidMount() {
     const isGuestUser = localStorage.getItem('isGuestUser');
     if (isGuestUser==='true'){
+      console.log('is guest')
       this.getGuestUserData();
     } else {
+      console.log('is not guest')
       this.getUserData();
     }
   }
@@ -66,8 +69,32 @@ class Dashboard extends Component {
     }
   }
 
+  // User1010.
+  // askizzyplus.user2@gmail.com
   getGuestUserData = () => {
-    this.setState({message:"guest"})
+    console.log('triggered')
+
+    this.setState({message:"Guest Session"})
+
+    const baseURL = process.env.REACT_APP_BASE_URL;
+    const url = `${baseURL}/protected/getUserData`;
+    // Sending the token in the headers to the server:
+    const token = {email:"guest_user"}
+    const options = {
+      headers: { token }
+    }
+    
+    axios.get(url, options)
+      .then(res => {
+        console.log('res.data', ': ', res.data);   
+        const { organisation, user, message } = res.data
+        this.setState({
+          organisation,
+          user,
+          message
+        })
+        console.log('DASHBOARD this.state', ': ', this.state);
+      })
   }
   
   render() {
