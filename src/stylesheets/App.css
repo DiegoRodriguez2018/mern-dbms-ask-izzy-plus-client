@@ -23,10 +23,10 @@
     padding-top: 1em; }
   .login-button-container .toggle-login {
     padding-top: 1em;
-    display: block;
     text-decoration: none;
     color: black;
-    font-weight: bold; }
+    font-weight: bold;
+    border: 1px solid black; }
 
 .react-tabs {
   -webkit-tap-highlight-color: transparent; }
@@ -242,10 +242,10 @@
     padding-top: 1em; }
   .login-button-container .toggle-login {
     padding-top: 1em;
-    display: block;
     text-decoration: none;
     color: black;
-    font-weight: bold; }
+    font-weight: bold;
+    border: 1px solid black; }
 
 .new-form {
   display: block;
@@ -740,6 +740,15 @@
   @media only screen and (max-width: 600px) {
     .user-card {
       justify-content: center; } }
+
+.guest-button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: white;
+  background: lightblue;
+  margin: 2rem; }
 
 body {
   margin: 0;

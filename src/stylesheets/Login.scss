@@ -1,0 +1,14 @@
+@import "./Mixins.scss";
+.guest-button{
+  border: none;
+  font-family: $button-font;
+  font-size: $font-size-login-button;
+  font-weight: bold;
+  border-radius: 3px;
+  margin: 2rem;
+  color: black;
+
+  &:hover {
+    background-color: $button-hover;
+  }
+}
