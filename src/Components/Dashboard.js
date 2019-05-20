@@ -16,10 +16,9 @@ class Dashboard extends Component {
   // State is initially empty object, will contain { user } and { organisation } objects when component mounts
   state = {}
 
-
   componentDidMount() {
     const isGuestUser = localStorage.getItem('isGuestUser');
-    if (isGuestUser){
+    if (isGuestUser==='true'){
       this.getGuestUserData();
     } else {
       this.getUserData();

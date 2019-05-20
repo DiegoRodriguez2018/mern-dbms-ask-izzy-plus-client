@@ -5,7 +5,7 @@ import history from '../history';
 class LogOut extends Component {
   logout = () => {
     // console.log("logout clicked");
-
+    localStorage.setItem('isGuestUser', '');
     localStorage.setItem('token', '');
     history.push('/')
 
