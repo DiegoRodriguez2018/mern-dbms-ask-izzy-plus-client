@@ -16,6 +16,16 @@ class Dashboard extends Component {
   // State is initially empty object, will contain { user } and { organisation } objects when component mounts
   state = {}
 
+
+  componentDidMount() {
+    const isGuestUser = localStorage.getItem('isGuestUser');
+    if (isGuestUser){
+      this.getGuestUserData();
+    } else {
+      this.getUserData();
+    }
+  }
+
   //This method is important to update the information after the forms are submitted. When the form is submited an new organisation object with the new data will be returned by the server, we can use this new data to update the state in dashboard and in the whole application as a result. 
   // Note we need to pass this method to the other components in the props.
   updateOrganisation = (newData) => {
@@ -53,16 +63,14 @@ class Dashboard extends Component {
           console.log('DASHBOARD this.state', ': ', this.state);
         })
     } else {
-      console.log("doesnt exists");
       this.setState({ error: "token error" })
     }
   }
 
-  componentDidMount() {
-    console.log("Component did mount");
-    this.getUserData();
+  getGuestUserData = () => {
+    this.setState({message:"guest"})
   }
-
+  
   render() {
     // Whenever component is rendered, get state data and store it in consts.
     const { organisation, user, given_name,family_name } = this.state;

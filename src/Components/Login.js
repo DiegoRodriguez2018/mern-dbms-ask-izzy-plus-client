@@ -22,8 +22,9 @@ class Login extends Component {
 
   handleGuestLogin = () => {
     const guestData = {
-      email:guest_user
+      email:"guest_user"
     }
+    localStorage.setItem('isGuestUser', true);
     localStorage.setItem('token', guestData);
     history.push('/dashboard');
   };
