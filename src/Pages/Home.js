@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // COMPONENTS
 import Navigation from '../Components/Navigation';
-import Login from '../Components/Login';
+import Login from '../Components/Authentication/Login';
 import Footer from '../Components/Footer';
 import hands from '../Images/app/hands.png';
 

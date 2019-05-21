@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import history from "../history";
 
 // COMPONENTS
-import LogOut from "./LogOut";
+import LogOut from "./Authentication/LogOut";
 import Banner from "./Banner";
 
 class Navigation extends Component {

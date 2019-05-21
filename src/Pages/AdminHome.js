@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Navigation from '../Components/Navigation';
-import AdminLogIn from '../Components/AdminLogIn';
+import AdminLogIn from '../Components/Authentication/AdminLogIn';
 import Footer from '../Components/Footer';
 import heart from '../Images/app/heart.png';
 class Admin extends Component {

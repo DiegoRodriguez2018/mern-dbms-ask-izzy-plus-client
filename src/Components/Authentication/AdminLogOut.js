@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { GoogleLogout } from 'react-google-login';
-import history from '../history';
+import history from '../../history';
 
 class LogOut extends Component {
   logout = () => {

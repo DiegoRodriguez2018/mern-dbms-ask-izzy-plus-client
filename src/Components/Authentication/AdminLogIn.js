@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GoogleLogin from "react-google-login";
-import history from "../history";
+import history from "../../history";
 
 class AdminLogIn extends Component {
   responseGoogle = response => {
