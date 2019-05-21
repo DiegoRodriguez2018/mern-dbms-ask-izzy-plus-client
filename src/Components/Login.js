@@ -46,12 +46,12 @@ class Login extends Component {
           className='login-button'
         />
         <div className='toggle-login-container'>
-          <a className='toggle-login' onClick={this.redirect}>
+          <div className='toggle-login' onClick={this.redirect}>
             Are you an Admin?
-          </a>
-          <a className='guest-button' onClick={this.handleGuestLogin}>
+          </div>
+          <div className='guest-button' onClick={this.handleGuestLogin}>
             Try it as a Guest
-          </a>
+          </div>
         </div>
       </div>
     );

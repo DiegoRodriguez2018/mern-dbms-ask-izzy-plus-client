@@ -23,7 +23,7 @@ class Navigation extends Component {
           )}
           {originPage === "home" && (
             <span className="quick-exit-right">
-              <a onClick={this.redirect} className="header-link">Register</a>
+              <div onClick={this.redirect} className="header-link">Register</div>
             </span>
           )}
         </div>
