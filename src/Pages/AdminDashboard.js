@@ -6,8 +6,8 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 // COMPONENTS
-import Navigation from "./Navigation";
-import Footer from "./Footer";
+import Navigation from "../Components/Navigation";
+import Footer from "../Components/Footer";
 // import AdminLogOut from "./AdminLogOut";
 
 const jwtDecode = require("jwt-decode");

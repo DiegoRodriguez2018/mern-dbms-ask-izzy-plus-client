@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 // COMPONENTS
-import Navigation from './Navigation';
-import Footer from './Footer';
+import Navigation from '../Components/Navigation';
+import Footer from '../Components/Footer';
 
 class PageNotFound extends Component {
   render() {

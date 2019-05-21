@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Navigation from './Navigation';
-import AdminLogIn from './AdminLogIn';
-import Footer from './Footer';
+import Navigation from '../Components/Navigation';
+import AdminLogIn from '../Components/AdminLogIn';
+import Footer from '../Components/Footer';
 import heart from '../Images/app/heart.png';
 class Admin extends Component {
   render() {

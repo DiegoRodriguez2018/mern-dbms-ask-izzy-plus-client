@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import './stylesheets/App.scss';
 import history from './history';
-import Register from './Components/Register';
-import Home from './Components/Home';
-import Dashboard from './Components/Dashboard';
-import AdminHome from './Components/AdminHome';
-import AdminDashboard from './Components/AdminDashboard';
-import PageNotFound from './Components/PageNotFound';
+
+import Register from './Pages/Register';
+import Home from './Pages/Home';
+import Dashboard from './Pages/Dashboard';
+import AdminHome from './Pages/AdminHome';
+import AdminDashboard from './Pages/AdminDashboard';
+import PageNotFound from './Pages/PageNotFound';
 
 class App extends Component {
   render() {

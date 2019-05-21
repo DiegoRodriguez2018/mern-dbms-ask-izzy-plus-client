@@ -3,12 +3,12 @@ import axios from 'axios';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 // COMPONENTS
-import User from './User';
-import Organisation from './Organisation';
-import Sites from './Sites';
-import Services from './Services';
-import Navigation from './Navigation';
-import Footer from './Footer';
+import User from '../Components/User';
+import Organisation from '../Components/Organisation';
+import Sites from '../Components/Sites';
+import Services from '../Components/Services';
+import Navigation from '../Components/Navigation';
+import Footer from '../Components/Footer';
 const jwtDecode = require('jwt-decode');
 
 class Dashboard extends Component {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 // COMPONENTS
-import Navigation from './Navigation';
-import Footer from './Footer';
+import Navigation from '../Components/Navigation';
+import Footer from '../Components/Footer';
 import register from '../Images/app/register.png';
 import about from '../Images/app/about-ask-izzy-plus.png';
 import nodebusters from '../Images/app/nodebusters-logo-small.png';
