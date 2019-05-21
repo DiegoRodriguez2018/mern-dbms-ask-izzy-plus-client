@@ -814,7 +814,7 @@ a {
   .image-wrapper .hero-image {
     grid-row: 1/4;
     grid-column: 1/4;
-    z-index: 999998;
+    z-index: 1;
     height: 100%; }
     .image-wrapper .hero-image img {
       width: 100%;
@@ -823,7 +823,7 @@ a {
   .image-wrapper .logo-image {
     grid-row: 1/4;
     grid-column: 1/4;
-    z-index: 999999;
+    z-index: 2;
     width: 45%;
     margin: auto; }
     .image-wrapper .logo-image .root-link {

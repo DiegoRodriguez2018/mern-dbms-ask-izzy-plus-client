@@ -10,40 +10,37 @@ import Services from './Services';
 import Navigation from './Navigation';
 import LogOut from './LogOut';
 import Footer from './Footer';
-import { getMaxListeners } from 'cluster';
 const jwtDecode = require('jwt-decode');
 
 class Dashboard extends Component {
   // State is initially empty object, will contain { user } and { organisation } objects when component mounts
-  state = {}
+  state = {};
 
   componentDidMount() {
     const isGuestUser = localStorage.getItem('isGuestUser');
-    if (isGuestUser==='true'){
-      console.log('is guest')
+    if (isGuestUser === 'true') {
       this.getGuestUserData();
     } else {
-      console.log('is not guest')
       this.getUserData();
     }
   }
 
-  //This method is important to update the information after the forms are submitted. When the form is submited an new organisation object with the new data will be returned by the server, we can use this new data to update the state in dashboard and in the whole application as a result. 
+  //This method is important to update the information after the forms are submitted. When the form is submited an new organisation object with the new data will be returned by the server, we can use this new data to update the state in dashboard and in the whole application as a result.
   // Note we need to pass this method to the other components in the props.
-  updateOrganisation = (newData) => {
+  updateOrganisation = newData => {
     this.setState({
       organisation: newData
-    })
-  }
+    });
+  };
 
   // Check for response.tokenId in local storage, if token exists, GET the /protected/user endpoint, sending the token as a header option
-  getUserData = (e) => {
+  getUserData = e => {
     const token = localStorage.getItem('token');
     const decoded = jwtDecode(token);
 
     // console.log('decoded',': ', decoded);
-    const {given_name,family_name} = decoded;
-    this.setState({ given_name, family_name })
+    const { given_name, family_name } = decoded;
+    this.setState({ given_name, family_name });
     if (token) {
       // console.log(token);
       const baseURL = process.env.REACT_APP_BASE_URL;
@@ -51,75 +48,78 @@ class Dashboard extends Component {
       // Sending the token in the headers to the server:
       const options = {
         headers: { token }
-      }
+      };
       // The server will send back res.data containing { user } and { organisation } objects
-      axios.get(url, options)
-        .then(res => {
-          // console.log('res.data', ': ', res.data);   
-          const { organisation, user, message } = res.data
-          this.setState({
-            organisation,
-            user,
-            message
-          })
-          console.log('DASHBOARD this.state', ': ', this.state);
-        })
-    } else {
-      this.setState({ error: "token error" })
-    }
-  }
-
-  // User1010.
-  // askizzyplus.user2@gmail.com
-  getGuestUserData = () => {
-    console.log('triggered')
-
-    this.setState({message:"Guest Session"})
-
-    const baseURL = process.env.REACT_APP_BASE_URL;
-    const url = `${baseURL}/protected/getUserData`;
-    // Sending the token in the headers to the server:
-    const token = {email:"guest_user"}
-    const options = {
-      headers: { token }
-    }
-    
-    axios.get(url, options)
-      .then(res => {
-        console.log('res.data', ': ', res.data);   
-        const { organisation, user, message } = res.data
+      axios.get(url, options).then(res => {
+        // console.log('res.data', ': ', res.data);
+        const { organisation, user, message } = res.data;
         this.setState({
           organisation,
           user,
           message
-        })
+        });
+        console.log('DASHBOARD this.state', ': ', this.state);
+      });
+    } else {
+      this.setState({ error: 'token error' });
+    }
+  };
+
+  getGuestUserData = () => {
+    this.setState({ message: 'Loading...' });
+    const baseURL = process.env.REACT_APP_BASE_URL;
+    const url = `${baseURL}/protected/getUserData`;
+    // Sending the token in the headers to the server:
+    const token = 'guest_user';
+    const  given_name  = "guest_user";
+    const  family_name  = "guest_user";
+    this.setState({ given_name, family_name });
+
+    const options = {
+      headers: { token }
+    };
+
+    axios
+      .get(url, options)
+      .then(res => {
+        this.setState({ message: 'Guest Session' });
+
+        console.log('res.data', ': ', res.data);
+        const { organisation, user } = res.data;
+        this.setState({
+          organisation,
+          user,
+        });
         console.log('DASHBOARD this.state', ': ', this.state);
       })
-  }
-  
+      .catch(err => {
+        this.setState({ message: err.message });
+      });
+  };
+
   render() {
     // Whenever component is rendered, get state data and store it in consts.
-    const { organisation, user, given_name,family_name } = this.state;
+    const { organisation, user, given_name, family_name } = this.state;
 
     // If organisation object exists in state, render information from { user } and { organisation } objects into tabs
     if (organisation) {
       return (
-        <div className="page-container">
-          
-          {/* NAVIGATION: Header Container w/ Logout, Hero & Logo */}
-          <Navigation originPage='dashboard'/>
+        <div className='page-container'>
 
-          <div className="body-container">
-          {/* REACT-TABS: Main <Tabs> Container */}
+          {/* NAVIGATION: Header Container w/ Logout, Hero & Logo */}
+          <Navigation originPage='dashboard' />
+
+          <div className='body-container'>
+            {/* REACT-TABS: Main <Tabs> Container */}
             {/* defaultIndex changes he tab that should be open on initial render. This is a zero-based index, so first tab is 0, second tab is 1, ... */}
             {/* onSelect is called every time a tab is about to change. It will be called with the index that it will be changed to, the lastIndex which was selected before and the underlying event. */}
             <Tabs
               defaultIndex={0}
               onSelect={index => {
-              // console.log(index + 1)
+                // console.log(index + 1)
               }}
-            >
-            {/* REACT-TABS: <TabList> Wrapper and <Tab> Headers */}
+              >
+              {/* REACT-TABS: <TabList> Wrapper and <Tab> Headers */}
               {/* User Profile, Organisation, Sites, Services */}
               <TabList>
                 <Tab>User Profile</Tab>
@@ -128,17 +128,17 @@ class Dashboard extends Component {
                 <Tab>Services</Tab>
               </TabList>
 
-            {/* REACT-TABS: <TabPanel> Body Content */}
+              {/* REACT-TABS: <TabPanel> Body Content */}
               {/* TAB: User */}
               <TabPanel>
                 <User
                   user={user}
                   organisation={organisation}
                   given_name={given_name}
-                  family_name = {family_name}
-                />
+                  family_name={family_name}
+                  />
               </TabPanel>
-              
+
               {/* TAB: Organisation */}
               <TabPanel>
                 <Organisation
@@ -146,8 +146,8 @@ class Dashboard extends Component {
                   updateOrganisation={this.updateOrganisation}
                 />
               </TabPanel>
-              
-            {/* TAB: Organisation > Sites */}
+
+              {/* TAB: Organisation > Sites */}
               {/* NOTE that we are passing the whole organisation and then deconstructing it in Sites.js and Services.js */}
               {/* Also note that we are passing updateOrganisation method so we can update the data after submitting forms. */}
               <TabPanel>
@@ -156,7 +156,7 @@ class Dashboard extends Component {
                   updateOrganisation={this.updateOrganisation}
                 />
               </TabPanel>
-              
+
               {/* TAB: Organisation > Sites > Services */}
               <TabPanel>
                 <Services
@@ -168,25 +168,22 @@ class Dashboard extends Component {
           </div>
 
           <Footer />
-
         </div>
       );
     } else {
       return (
-        <div className="page-container">
-          
+        <div className='page-container'>
           {/* NAVIGATION: Header Container w/ Logout, Hero & Logo */}
-          <Navigation originPage='dashboard'/>
+          <Navigation originPage='dashboard' />
 
-          <div className="body-container">
+          <div className='body-container'>
             <h3> {this.state.message} </h3>
           </div>
-          
+
           <Footer />
         </div>
       );
     }
-
   }
 }
 export default Dashboard;
